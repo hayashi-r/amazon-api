@@ -16,4 +16,4 @@ $orderpending = $query->selectAllPendingDesc('amazon_orders');
 $ordershipped = $query->selectAllShippedDesc('amazon_orders');
 $ordercanceled = $query->selectAllCanceledDesc('amazon_orders');
 
-require("orders.view.php");
+require("views/orders.view.php");
