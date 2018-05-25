@@ -25,16 +25,23 @@ class QueryBuilder
     $statement->execute(array("test", "test2"));
   }
 
-  public function selectAll($table)
+ public function selectAll($table)
   {
     $statement = $this->pdo->prepare("SELECT * FROM {$table}");
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS);
   }
 
+  public function selectOrderDetails($table, $amazonorderid)
+  {
+    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE amazonorderid = '{$amazonorderid}'");
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_CLASS);
+  }
+
   public function selectAllUnshippedDesc($table)
   {
-    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Unshipped' ORDER BY latestshipdate DESC");
+    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Unshipped' ORDER BY purchasedate DESC");
     $statement->execute();
     $count = $statement->rowCount();
     return $statement->fetchAll(PDO::FETCH_CLASS);
@@ -42,21 +49,21 @@ class QueryBuilder
 
   public function selectAllPendingDesc($table)
   {
-    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Pending' ORDER BY latestshipdate DESC");
+    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Pending' ORDER BY purchasedate DESC");
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS);
   }
 
   public function selectAllShippedDesc($table)
   {
-    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Shipped' ORDER BY latestshipdate DESC");
+    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Shipped' ORDER BY purchasedate DESC");
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS);
   }
 
   public function selectAllCanceledDesc($table)
   {
-    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Canceled' ORDER BY latestshipdate DESC");
+    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE orderstatus = 'Canceled' ORDER BY purchasedate DESC");
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS);
   }

@@ -1,60 +1,23 @@
 <?php
 
- require("mwscredentials.php");
+// Receive customer MWS credentials
 
-$param = array();
-$param['AWSAccessKeyId']   = $AWSAccessKeyId;
-$param['Action']           = 'ListOrders';
-$param['SellerId']         = $SellerId;
-$param['MarketplaceId.Id.1'] = $MarketplaceId;
-$param['MWSAuthToken'] = $MWSAuthToken;
-$param['SignatureMethod']  = 'HmacSHA256';
-$param['SignatureVersion'] = '2';
-$param['Timestamp']        = gmdate("Y-m-d\TH:i:s.\\0\\0\\0\\Z", time());
-$param['Version']          = '2013-09-01';
-$param['CreatedAfter']    = gmdate("Y-m-d\TH:i:s.\\0\\0\\0\\Z", time() - 864000);
+require("mwscredentials.php");
+
+// SET Paramater for API request
+
+require("amazonListOrders.php");
 
 
-$url = array();
-foreach ($param as $key => $val) {
-
-    $key = str_replace("%7E", "~", rawurlencode($key));
-    $val = str_replace("%7E", "~", rawurlencode($val));
-    $url[] = "{$key}={$val}";
-}
-
-sort($url);
-
-$arr   = implode('&', $url);
-
-$sign  = 'GET' . "\n";
-$sign .= 'mws.amazonservices.com' . "\n";
-$sign .= '/Orders/2013-09-01' . "\n";
-$sign .= $arr;
-
-$signature = hash_hmac("sha256", $sign, $secret, true);
-$signature = urlencode(base64_encode($signature));
-
-$link  = "https://mws.amazonservices.com/Orders/2013-09-01?";
-$link .= $arr . "&Signature=" . $signature;
-// echo($link); //for debugging - you can paste this into a browser and see if it loads.
-
-$ch = curl_init($link);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/xml'));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-$response = curl_exec($ch);
-$info = curl_getinfo($ch);
-curl_close($ch);
-
-$xml = (array)simplexml_load_string($response);
-
-$json = json_encode($xml);
-$orders = json_decode($json,TRUE);
-
-$orderdata = array();
+// Loop through XML result
 
 foreach($orders as $results) {
+// Receive Next token
+ if($results['NextToken']){
+  $nexttoken = $results['NextToken'];
+}
+// END of receive Next $token
+
   foreach($results as $amaorders) {
     foreach($amaorders as $numbers){
       foreach($numbers as $data => $finaldata){
@@ -72,22 +35,97 @@ $isbusinessorder = (int)$finaldata['IsBusinessOrder'];
 $isprime = (int)$finaldata['IsPrime'];
 $ispremiumorder = (int)$finaldata['IsPremiumOrder'];
 
+// GET OrderTotal
 
+if(isset($finaldata['OrderTotal'])){
+
+    $currencycode = $finaldata['OrderTotal']['CurrencyCode'];
+    $amount = $finaldata['OrderTotal']['Amount'];
+
+}
+
+// END of GET OrderTotal
+
+// GET Shipping address
+
+if(isset($finaldata['ShippingAddress'])){
+
+    $city = $finaldata['ShippingAddress']['City'];
+    $postalcode = $finaldata['ShippingAddress']['PostalCode'];
+    $state = $finaldata['ShippingAddress']['StateOrRegion'];
+    $country = $finaldata['ShippingAddress']['CountryCode'];
+    $customername = $finaldata['ShippingAddress']['Name'];
+    $address1 = $finaldata['ShippingAddress']['AddressLine1'];
+    $address2 = $finaldata['ShippingAddress']['AddressLine2'];
+    $address3 = $finaldata['ShippingAddress']['AddressLine3'];
+
+}
+
+// End of Shipping address
+
+// INSERT first 100 results or Update
   try {
-       $statement = $pdo->prepare("INSERT INTO amazon_orders(amazonorderid, purchasedate, orderstatus, fulfillmentchannel, saleschannel, buyeremail, buyername, ordertype, latestshipdate, isbusinessorder, isprime, ispremiumorder)
-        VALUES ('$orderid', '$purchasedate', '$orderstatus', '$fulfillmentchannel', '$saleschannel', '$buyeremail', '$buyername', '$ordertype', '$latestshipdate', '$isbusinessorder', '$isprime', '$ispremiumorder')");
-       $statement->execute();
-     } catch (PDOException $e) {
+       $statement = $pdo->prepare("INSERT INTO amazon_orders(amazonorderid, purchasedate, orderstatus, fulfillmentchannel,
+          saleschannel, buyeremail, buyername, ordertype, latestshipdate, isbusinessorder, isprime, ispremiumorder, currencycode, amount,
+          city, postalcode, state, country, customername, address1, address2, address3)
+        VALUES (:orderid, :purchasedate, :orderstatus, :fulfillmentchannel,
+           :saleschannel, :buyeremail, :buyername, :ordertype, :latestshipdate, :isbusinessorder, :isprime, :ispremiumorder, :currencycode, :amount,
+           :city, :postalcode, :state, :country, :customername, :address1, :address2, :address3)");
+           $statement->bindValue(':orderid', $orderid, PDO::PARAM_STR);
+           $statement->bindValue(':purchasedate', $purchasedate, PDO::PARAM_STR);
+           $statement->bindValue(':orderstatus', $orderstatus, PDO::PARAM_STR);
+           $statement->bindValue(':fulfillmentchannel', $fulfillmentchannel, PDO::PARAM_STR);
+           $statement->bindValue(':saleschannel', $saleschannel, PDO::PARAM_STR);
+           if($buyeremail === null){ $buyeremail = ""; }
+           $statement->bindValue(':buyeremail', $buyeremail, PDO::PARAM_STR);
+           if($buyername === null){ $buyername = ""; }
+           $statement->bindValue(':buyername', $buyername, PDO::PARAM_STR);
+           $statement->bindValue(':ordertype', $ordertype, PDO::PARAM_STR);
+           $statement->bindValue(':latestshipdate', $latestshipdate, PDO::PARAM_STR);
+           $statement->bindValue(':isbusinessorder', $isbusinessorder, PDO::PARAM_INT);
+           $statement->bindValue(':isprime', $isprime, PDO::PARAM_INT);
+           $statement->bindValue(':ispremiumorder', $ispremiumorder, PDO::PARAM_INT);
+           $statement->bindValue(':currencycode', $currencycode, PDO::PARAM_STR);
+           $statement->bindValue(':amount', $amount, PDO::PARAM_STR);
+           $statement->bindValue(':city', $city, PDO::PARAM_STR);
+           $statement->bindValue(':postalcode', $postalcode, PDO::PARAM_STR);
+           if($state === null){ $state = ""; }
+           $statement->bindValue(':state', $state, PDO::PARAM_STR);
+           $statement->bindValue(':country', $country, PDO::PARAM_STR);
+           if($customername === null){ $customername = ""; }
+           $statement->bindValue(':customername', $customername, PDO::PARAM_STR);
+           $statement->bindValue(':address1', $address1, PDO::PARAM_STR);
+            if($address2 === null){ $address2 = ""; }
+           $statement->bindValue(':address2', $address2, PDO::PARAM_STR);
+           if($address3 === null){ $address3 = ""; }
+           $statement->bindValue(':address3', $address3, PDO::PARAM_STR);
+           $statement->execute();
+    echo "New insert for ID $orderid with Amount $currencycode $amount"; ?><br> <?php
+    } catch (PDOException $e) {
     if ($e->errorInfo[1] == 1062) {
-      $statement = $pdo->prepare("UPDATE amazon_orders SET orderstatus = '$orderstatus' WHERE amazonorderid = '$orderid'");
-      $statement->execute();
+
+     $statement = $pdo->prepare("UPDATE amazon_orders SET orderstatus=:orderstatus WHERE amazonorderid = :orderid");
+     $statement->bindValue(':orderstatus', $orderstatus, PDO::PARAM_STR);
+     $statement->bindValue(':orderid', $orderid, PDO::PARAM_STR);
+     $statement->execute();
+    /* echo "Double entry for ID $orderid"; ?><br> <?php
+    */
     } else {
        echo $e;
      }
    }
-
+// INSERT  END
 
           }
+
         }
       }
     }
+
+    if(isset($nexttoken)){
+      echo "There are more orders to load";
+    } else {
+      echo "No more orders left";
+    }
+
+    require("orderDetailsRequest.php");

@@ -48,8 +48,8 @@ include('nav.php');
        <th scope="col">Order Status</th>
        <th scope="col">Fulfillment By</th>
  	     <th scope="col">SalesChannel</th>
-
-       <th scope="col">Buyer Name</th>
+       <th scope="col">Order Total</th>
+       <th scope="col">Ship to</th>
 
        <th scope="col">Ship By</th>
 
@@ -61,7 +61,7 @@ include('nav.php');
  	foreach ($orderunshipped as $orders) : ?>
 
      <tr>
-       <th scope="row"><?php echo $orders->amazonorderid; ?></th>
+       <th scope="row"><a href="orderDetails.php?orderid=<?php echo $orders->amazonorderid; ?>"><?php echo $orders->amazonorderid; ?></a></th>
        <td><?php
        $datetochange = $orders->purchasedate;
        $converted = date("d.m.Y H:i:s", strtotime('+9 hours', strtotime($datetochange)));
@@ -82,8 +82,21 @@ include('nav.php');
             } else {
         echo $orders->fulfillmentchannel; } ?></td>
        <td><?php echo $orders->saleschannel; ?></td>
+       <td><?php echo $orders->currencycode; ?> <?php echo $orders->amount; ?></td>
 
-       <td><?php echo $orders->buyername; ?></td>
+       <td><?php echo $orders->customername; ?><br>
+           <?php echo $orders->address1; ?><br>
+           <?php  if (!empty($orders->address2)) {
+             echo $orders->address2; ?><br>
+           <?php };
+             if (!empty($orders->address3)) {
+               echo $orders->address3; ?><br>
+             <?php };
+             echo $orders->postalcode; ?>, <?php echo $orders->city; ?><br>
+             <?php echo $orders->country; ?>
+
+
+       </td>
 
        <td><?php
        $shipdatetochange = $orders->latestshipdate;
@@ -124,7 +137,7 @@ endforeach;
 foreach ($orderpending as $orders) : ?>
 
    <tr>
-     <th scope="row"><?php echo $orders->amazonorderid; ?></th>
+     <th scope="row"><a href="orderDetails.php?orderid=<?php echo $orders->amazonorderid; ?>"><?php echo $orders->amazonorderid; ?></a></th>
      <td><?php
      $datetochange = $orders->purchasedate;
      $converted = date("d.m.Y H:i:s", strtotime('+9 hours', strtotime($datetochange)));
@@ -173,7 +186,7 @@ endforeach;
      <th scope="col">Fulfillment By</th>
      <th scope="col">SalesChannel</th>
 
-     <th scope="col">Buyer Name</th>
+     <th scope="col">Shipped to</th>
 
   <!--   <th scope="col">Ship By</th> -->
 
@@ -185,7 +198,7 @@ endforeach;
 foreach ($ordershipped as $orders) : ?>
 
    <tr>
-     <th scope="row"><?php echo $orders->amazonorderid; ?></th>
+     <th scope="row"><a href="orderDetails.php?orderid=<?php echo $orders->amazonorderid; ?>"><?php echo $orders->amazonorderid; ?></a></th>
      <td><?php
      $datetochange = $orders->purchasedate;
      $converted = date("d.m.Y H:i:s", strtotime('+9 hours', strtotime($datetochange)));
@@ -207,7 +220,16 @@ foreach ($ordershipped as $orders) : ?>
       echo $orders->fulfillmentchannel; } ?></td>
      <td><?php echo $orders->saleschannel; ?></td>
 
-     <td><?php echo $orders->buyername; ?></td>
+     <td><?php echo $orders->customername; ?><br>
+         <?php echo $orders->address1; ?><br>
+         <?php  if (!empty($orders->address2)) {
+           echo $orders->address2; ?><br>
+         <?php };
+           if (!empty($orders->address3)) {
+             echo $orders->address3; ?><br>
+           <?php };
+           echo $orders->postalcode; ?>, <?php echo $orders->city; ?><br>
+           <?php echo $orders->country; ?></td>
 
 
 
@@ -233,7 +255,7 @@ endforeach;
      <th scope="col">Fulfillment By</th>
      <th scope="col">SalesChannel</th>
 
-     <th scope="col">Buyer Name</th>
+     <th scope="col">Ship to</th>
 
 <!--     <th scope="col">Ship By</th> -->
 
@@ -245,7 +267,7 @@ endforeach;
 foreach ($ordercanceled as $orders) : ?>
 
    <tr>
-     <th scope="row"><?php echo $orders->amazonorderid; ?></th>
+     <th scope="row"><a href="orderDetails.php?orderid=<?php echo $orders->amazonorderid; ?>"><?php echo $orders->amazonorderid; ?></a></th>
      <td><?php
      $datetochange = $orders->purchasedate;
      $converted = date("d.m.Y H:i:s", strtotime('+9 hours', strtotime($datetochange)));
@@ -267,7 +289,16 @@ foreach ($ordercanceled as $orders) : ?>
       echo $orders->fulfillmentchannel; } ?></td>
      <td><?php echo $orders->saleschannel; ?></td>
 
-     <td><?php echo $orders->buyername; ?></td>
+     <td><?php echo $orders->customername; ?><br>
+         <?php echo $orders->address1; ?><br>
+         <?php  if (!empty($orders->address2)) {
+           echo $orders->address2; ?><br>
+         <?php };
+           if (!empty($orders->address3)) {
+             echo $orders->address3; ?><br>
+           <?php };
+           echo $orders->postalcode; ?>, <?php echo $orders->city; ?><br>
+           <?php echo $orders->country; ?></td>
 
 
 
