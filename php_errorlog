@@ -1,0 +1,194 @@
+[04-May-2018 13:35:28 CST6CDT] PHP Fatal error:  require_once(): Failed opening required 'config.php' (include_path='.:/usr/local/php70/pear') in /home/sendjapa/public_html/amazon/login.php on line 3
+[04-May-2018 13:36:47 CST6CDT] PHP Fatal error:  require_once(): Failed opening required 'config.php' (include_path='.:/usr/local/php70/pear') in /home/sendjapa/public_html/amazon/login.php on line 3
+[05-May-2018 09:03:50 CST6CDT] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ')' in /home/sendjapa/public_html/amazon/apiTest.php on line 50
+[05-May-2018 09:09:58 CST6CDT] PHP Parse error:  syntax error, unexpected '[', expecting '(' in /home/sendjapa/public_html/amazon/apiTest.php on line 50
+[05-May-2018 09:13:53 CST6CDT] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ',' or ')' in /home/sendjapa/public_html/amazon/apiTest.php on line 50
+[07-May-2018 09:15:06 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function object2array() in /home/sendjapa/public_html/amazon/apiTest.php:48
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/apiTest.php on line 48
+[07-May-2018 09:48:07 CST6CDT] PHP Parse error:  syntax error, unexpected 'for' (T_FOR) in /home/sendjapa/public_html/amazon/apiTest.php on line 53
+[07-May-2018 09:51:58 CST6CDT] PHP Parse error:  syntax error, unexpected 'for' (T_FOR) in /home/sendjapa/public_html/amazon/apiTest.php on line 53
+[08-May-2018 09:46:04 CST6CDT] PHP Parse error:  syntax error, unexpected '"', expecting ',' or ';' in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 60
+[08-May-2018 09:50:53 CST6CDT] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 63
+[09-May-2018 22:53:46 CST6CDT] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 68
+[10-May-2018 00:24:45 CST6CDT] PHP Parse error:  syntax error, unexpected '"seller_id"' (T_CONSTANT_ENCAPSED_STRING) in /home/sendjapa/public_html/amazon/mwscredentials.php on line 7
+[10-May-2018 00:26:15 CST6CDT] PHP Parse error:  syntax error, unexpected 'seller_id' (T_STRING) in /home/sendjapa/public_html/amazon/mwscredentials.php on line 7
+[10-May-2018 00:29:54 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_query() in /home/sendjapa/public_html/amazon/mwscredentials.php:5
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/apiTestOrders.php(3): require_once()
+#1 /home/sendjapa/public_html/amazon/orders.php(31): include('/home/sendjapa/...')
+#2 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 5
+[10-May-2018 00:31:16 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_fetch_array() in /home/sendjapa/public_html/amazon/mwscredentials.php:6
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/apiTestOrders.php(3): require_once()
+#1 /home/sendjapa/public_html/amazon/orders.php(31): include('/home/sendjapa/...')
+#2 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 6
+[10-May-2018 01:52:47 CST6CDT] PHP Parse error:  syntax error, unexpected 'foreach' (T_FOREACH) in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 6
+[10-May-2018 01:59:12 CST6CDT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 20
+[10-May-2018 02:02:24 CST6CDT] PHP Parse error:  syntax error, unexpected end of file in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 32
+[10-May-2018 02:06:38 CST6CDT] PHP Parse error:  syntax error, unexpected '>' in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 12
+[10-May-2018 02:34:37 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot access empty property in /home/sendjapa/public_html/amazon/apiTestOrders.php:9
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/orders.php(31): include()
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 9
+[10-May-2018 08:56:01 CST6CDT] PHP Parse error:  syntax error, unexpected 'INTO' (T_STRING) in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 12
+[10-May-2018 08:58:11 CST6CDT] PHP Parse error:  syntax error, unexpected 'INTO' (T_STRING) in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 13
+[10-May-2018 08:59:39 CST6CDT] PHP Parse error:  syntax error, unexpected 'INTO' (T_STRING) in /home/sendjapa/public_html/amazon/apiTestOrders.php on line 13
+[11-May-2018 19:42:27 CST6CDT] PHP Parse error:  syntax error, unexpected 'var' (T_VAR) in /home/sendjapa/public_html/amazon/getOrders.php on line 12
+[11-May-2018 19:42:53 CST6CDT] PHP Parse error:  syntax error, unexpected '$ordernumber' (T_VARIABLE) in /home/sendjapa/public_html/amazon/getOrders.php on line 15
+[11-May-2018 19:43:07 CST6CDT] PHP Parse error:  syntax error, unexpected 'var' (T_VAR), expecting end of file in /home/sendjapa/public_html/amazon/getOrders.php on line 7
+[11-May-2018 19:44:17 CST6CDT] PHP Parse error:  syntax error, unexpected '$ordernumber' (T_VARIABLE) in /home/sendjapa/public_html/amazon/getOrders.php on line 15
+[11-May-2018 19:45:46 CST6CDT] PHP Parse error:  syntax error, unexpected '$ordernumber' (T_VARIABLE) in /home/sendjapa/public_html/amazon/getOrders.php on line 15
+[11-May-2018 19:48:15 CST6CDT] PHP Parse error:  syntax error, unexpected '>' in /home/sendjapa/public_html/amazon/getOrders.php on line 17
+[11-May-2018 19:49:03 CST6CDT] PHP Parse error:  syntax error, unexpected '"<br>"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/sendjapa/public_html/amazon/getOrders.php on line 17
+[11-May-2018 19:49:25 CST6CDT] PHP Parse error:  syntax error, unexpected ''<br>'' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/sendjapa/public_html/amazon/getOrders.php on line 17
+[11-May-2018 19:49:34 CST6CDT] PHP Parse error:  syntax error, unexpected ''<br>'' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/sendjapa/public_html/amazon/getOrders.php on line 17
+[11-May-2018 21:59:30 CST6CDT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/sendjapa/public_html/amazon/getOrders.php on line 19
+[11-May-2018 22:16:21 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_real_escape_string() in /home/sendjapa/public_html/amazon/getOrders.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 17
+[11-May-2018 22:17:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_real_escape_string() in /home/sendjapa/public_html/amazon/getOrders.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 17
+[11-May-2018 22:53:18 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function myslqi_error() in /home/sendjapa/public_html/amazon/getOrders.php:36
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 36
+[11-May-2018 23:34:08 CST6CDT] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/sendjapa/public_html/amazon/getOrders.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 35
+[12-May-2018 00:23:04 CST6CDT] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/sendjapa/public_html/amazon/getOrders.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 38
+[12-May-2018 00:24:06 CST6CDT] PHP Fatal error:  Uncaught Error: Call to a member function query() on string in /home/sendjapa/public_html/amazon/getOrders.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 38
+[12-May-2018 00:41:26 CST6CDT] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home/sendjapa/public_html/amazon/getOrders.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 39
+[12-May-2018 00:42:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home/sendjapa/public_html/amazon/getOrders.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 39
+[12-May-2018 00:43:35 CST6CDT] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home/sendjapa/public_html/amazon/getOrders.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 39
+[12-May-2018 02:48:08 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function int() in /home/sendjapa/public_html/amazon/getOrders.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 23
+[12-May-2018 03:08:13 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function myslqi_sum_rows() in /home/sendjapa/public_html/amazon/getOrders.php:50
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/orders.php(23): include()
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 50
+[12-May-2018 03:08:47 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_sum_rows() in /home/sendjapa/public_html/amazon/getOrders.php:50
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/orders.php(23): include()
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/getOrders.php on line 50
+[12-May-2018 03:16:31 CST6CDT] PHP Parse error:  syntax error, unexpected end of file in /home/sendjapa/public_html/amazon/orders.php on line 76
+[12-May-2018 03:17:29 CST6CDT] PHP Parse error:  syntax error, unexpected end of file in /home/sendjapa/public_html/amazon/orders.php on line 78
+[12-May-2018 04:08:57 CST6CDT] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/sendjapa/public_html/amazon/orders.php on line 29
+[12-May-2018 04:09:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_fetch_array() in /home/sendjapa/public_html/amazon/orders.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/orders.php on line 26
+[12-May-2018 09:03:01 CST6CDT] PHP Parse error:  syntax error, unexpected ''purchasedate'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/sendjapa/public_html/amazon/orders.php on line 62
+[12-May-2018 09:04:33 CST6CDT] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/sendjapa/public_html/amazon/orders.php on line 62
+[12-May-2018 09:34:26 CST6CDT] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/sendjapa/public_html/amazon/orders.php on line 69
+[12-May-2018 09:45:27 CST6CDT] PHP Fatal error:  Cannot use [] for reading in /home/sendjapa/public_html/amazon/orderRequest.php on line 94
+[13-May-2018 00:15:28 CST6CDT] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/sendjapa/public_html/amazon/orderRequest.php on line 95
+[13-May-2018 00:37:13 CST6CDT] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/sendjapa/public_html/amazon/orderRequest.php on line 98
+[13-May-2018 02:01:48 CST6CDT] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/sendjapa/public_html/amazon/orders.view.php on line 107
+[13-May-2018 02:02:02 CST6CDT] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/sendjapa/public_html/amazon/orders.view.php on line 107
+[13-May-2018 02:31:32 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/sendjapa/public_html/amazon/orders.view.php on line 95
+[13-May-2018 02:34:50 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot use object of type PDOStatement as array in /home/sendjapa/public_html/amazon/orders.view.php:38
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/orders.php(16): require()
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/orders.view.php on line 38
+[13-May-2018 08:02:48 CST6CDT] PHP Fatal error:  Cannot redeclare requestOrders() (previously declared in /home/sendjapa/public_html/amazon/config.php:32) in /home/sendjapa/public_html/amazon/config.php on line 32
+[13-May-2018 08:05:17 CST6CDT] PHP Fatal error:  Cannot redeclare requestOrders() (previously declared in /home/sendjapa/public_html/amazon/config.php:32) in /home/sendjapa/public_html/amazon/config.php on line 32
+[13-May-2018 08:06:58 CST6CDT] PHP Fatal error:  Cannot redeclare requestOrders() (previously declared in /home/sendjapa/public_html/amazon/config.php:32) in /home/sendjapa/public_html/amazon/config.php on line 32
+[13-May-2018 08:07:00 CST6CDT] PHP Fatal error:  Cannot redeclare requestOrders() (previously declared in /home/sendjapa/public_html/amazon/config.php:32) in /home/sendjapa/public_html/amazon/config.php on line 32
+[13-May-2018 08:18:31 CST6CDT] PHP Fatal error:  Uncaught Error: Undefined class constant 'FETCH_Class' in /home/sendjapa/public_html/amazon/config.php:40
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/mwscredentials.php(9): mwscredentials(Object(PDO))
+#1 /home/sendjapa/public_html/amazon/orderRequest.php(3): require('/home/sendjapa/...')
+#2 {main}
+  thrown in /home/sendjapa/public_html/amazon/config.php on line 40
+[13-May-2018 08:33:56 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot access empty property in /home/sendjapa/public_html/amazon/mwscredentials.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 16
+[13-May-2018 08:35:27 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot access empty property in /home/sendjapa/public_html/amazon/mwscredentials.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 16
+[13-May-2018 08:36:21 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot access empty property in /home/sendjapa/public_html/amazon/mwscredentials.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 16
+[13-May-2018 08:38:03 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot access empty property in /home/sendjapa/public_html/amazon/mwscredentials.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 18
+[13-May-2018 08:40:27 CST6CDT] PHP Fatal error:  Uncaught Error: Cannot access empty property in /home/sendjapa/public_html/amazon/mwscredentials.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 16
+[13-May-2018 09:08:24 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'DemoLib' not found in /home/sendjapa/public_html/amazon/index.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/index.php on line 13
+[13-May-2018 09:29:26 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function DB() in /home/sendjapa/public_html/amazon/library.php:90
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/index.php(29): DemoLib->Login('hayashir', 'Hngnrncn1')
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/library.php on line 90
+[14-May-2018 02:22:57 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined method QueryBuilder::selectAllDesc() in /home/sendjapa/public_html/amazon/orders.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/orders.php on line 12
+[14-May-2018 02:47:36 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function connectToDb() in /home/sendjapa/public_html/amazon/mwscredentials.php:10
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/orderRequest.php(3): require()
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 10
+[14-May-2018 02:49:01 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function connectToDb() in /home/sendjapa/public_html/amazon/mwscredentials.php:11
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/orderRequest.php(3): require()
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 11
+[14-May-2018 02:52:05 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'QueryBuilder' not found in /home/sendjapa/public_html/amazon/mwscredentials.php:13
+Stack trace:
+#0 /home/sendjapa/public_html/amazon/orderRequest.php(3): require()
+#1 {main}
+  thrown in /home/sendjapa/public_html/amazon/mwscredentials.php on line 13
+[14-May-2018 02:52:33 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function connectToDb() in /home/sendjapa/public_html/amazon/orderRequest.php:86
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/orderRequest.php on line 86
+[14-May-2018 02:56:42 CST6CDT] PHP Fatal error:  require(): Failed opening required 'config.php' (include_path='.:/usr/local/php70/pear') in /home/sendjapa/public_html/amazon/orders.php on line 6
+[14-May-2018 02:58:31 CST6CDT] PHP Fatal error:  require(): Failed opening required 'config.php' (include_path='.:/usr/local/php70/pear') in /home/sendjapa/public_html/amazon/mwscredentials.php on line 5
+[15-May-2018 00:28:53 CST6CDT] PHP Fatal error:  Cannot declare class Connection, because the name is already in use in /home/sendjapa/public_html/amazon/database/connection.php on line 9
+[15-May-2018 00:48:03 CST6CDT] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/sendjapa/public_html/amazon/database/QueryBuilder.php on line 24
+[15-May-2018 00:56:21 CST6CDT] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/sendjapa/public_html/amazon/orderRequest.php:94
+Stack trace:
+#0 {main}
+  thrown in /home/sendjapa/public_html/amazon/orderRequest.php on line 94
+[15-May-2018 01:40:08 CST6CDT] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/sendjapa/public_html/amazon/orderRequest.php on line 100
+[15-May-2018 01:43:19 CST6CDT] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/sendjapa/public_html/amazon/orderRequest.php on line 102
+[15-May-2018 01:56:30 CST6CDT] PHP Parse error:  syntax error, unexpected end of file in /home/sendjapa/public_html/amazon/orderRequest.php on line 110
